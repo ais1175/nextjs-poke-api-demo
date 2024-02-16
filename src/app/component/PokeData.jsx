@@ -48,6 +48,8 @@ function PokeData() {
                   <Image
                     src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${index + 1}.png`}
                     alt=""
+                    width={100}
+                    height={100}
                   />
                 </div>
               </div>

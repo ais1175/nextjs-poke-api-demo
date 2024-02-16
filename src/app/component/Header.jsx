@@ -18,7 +18,7 @@ function Header() {
 
   // Function สำหรับจัดการกับ Form 
   // หลังจาก Submit ให้ส่งค่า pokename ไปหน้า /pokesingle
-  const handleForm = async (e) => {
+  const handleForm = (e) => {
     e.preventDefault();
     router.push(`/pokesearch?pokename=${pokeName}`);
   }

@@ -4,9 +4,8 @@ import React, { useState, useEffect } from 'react'
 import { useSearchParams } from 'next/navigation'
 import Link from 'next/link'
 import Image from 'next/image'
-import { Suspense } from 'react'
 
-function PokeSingle() {
+function PokeSearch() {
 
     // เรียกใช้ useSearchParams Hooks
     const pokeNameParams = useSearchParams()
@@ -18,7 +17,7 @@ function PokeSingle() {
     const [pokeData, setPokeData] = useState([]);
     const [loading, setLoading] = useState(false);
 
-    console.log("Data from pokesingle", pokeData);
+    console.log("Data from pokesearch", pokeData);
 
     const fetchPokeData = async () => {
         try {
@@ -44,25 +43,25 @@ function PokeSingle() {
             {loading ? (
                 <p>Loading...</p>
             ) : (
-                <Suspense>
+                <>
                     <h3 className='text-3xl'>{pokeData.name}</h3>
-                        <Image src={pokeData.sprites?.other.home.front_default} width={300} height={300} alt={pokeData.name} />
-                            <div className='mt-5'>
-                            <p className='my-3'>Weight: {pokeData.weight}</p>
-                            <p className='my-3'>
+                    <Image src={pokeData.sprites?.other.home.front_default} width={300} height={300} alt={pokeData.name} />
+                    <div className='mt-5'>
+                        <p className='my-3'>Weight: {pokeData.weight}</p>
+                        <p className='my-3'>
                             Abilities: {" "}
                             {pokeData.abilities?.map(val => (
                                 <span key={val.ability.name} className='bg-gray-500 text-white px-3 py-1 rounded-md'>{val.ability.name}</span>
                             ))}
-                            </p>
-                            <p className='my-3'>
+                        </p>
+                        <p className='my-3'>
                             Types: {" "}
                             {pokeData.types?.map(val => (
                                 <span key={val.type.name} className='bg-gray-500 text-white px-3 py-1 rounded-md'>{val.type.name}</span>
                             ))}
                         </p>
                     </div>
-                </Suspense>
+                </>
             )}
         </div>
       </div>
@@ -70,4 +69,4 @@ function PokeSingle() {
   )
 }
 
-export default PokeSingle
+export default PokeSearch
