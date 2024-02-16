@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from 'next/image'
 
 function PokeData() {
   
@@ -44,7 +45,7 @@ function PokeData() {
               >
                 <div>
                   <h3>{val.name}</h3>
-                  <img
+                  <Image
                     src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${index + 1}.png`}
                     alt=""
                   />

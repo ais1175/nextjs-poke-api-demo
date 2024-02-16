@@ -46,13 +46,13 @@ function PokeInfo() {
                 <p className='my-3'>
                   Abilities: {" "}
                   {poke.abilities?.map(val => (
-                    <span className='bg-gray-500 text-white px-3 py-1 rounded-md'>{val.ability.name}</span>
+                    <span key={val.ability.name} className='bg-gray-500 text-white px-3 py-1 rounded-md'>{val.ability.name}</span>
                   ))}
                 </p>
                 <p className='my-3'>
                   Types: {" "}
                   {poke.types?.map(val => (
-                    <span className='bg-gray-500 text-white px-3 py-1 rounded-md'>{val.type.name}</span>
+                    <span key={val.type.name} className='bg-gray-500 text-white px-3 py-1 rounded-md'>{val.type.name}</span>
                   ))}
                 </p>
               </div>

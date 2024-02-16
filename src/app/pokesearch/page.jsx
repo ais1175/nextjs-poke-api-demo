@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react'
 import { useSearchParams } from 'next/navigation'
 import Link from 'next/link'
 import Image from 'next/image'
+import { Suspense } from 'react'
 
 function PokeSingle() {
 
@@ -43,7 +44,7 @@ function PokeSingle() {
             {loading ? (
                 <p>Loading...</p>
             ) : (
-                <>
+                <Suspense>
                     <h3 className='text-3xl'>{pokeData.name}</h3>
                         <Image src={pokeData.sprites?.other.home.front_default} width={300} height={300} alt={pokeData.name} />
                             <div className='mt-5'>
@@ -51,17 +52,17 @@ function PokeSingle() {
                             <p className='my-3'>
                             Abilities: {" "}
                             {pokeData.abilities?.map(val => (
-                                <span className='bg-gray-500 text-white px-3 py-1 rounded-md'>{val.ability.name}</span>
+                                <span key={val.ability.name} className='bg-gray-500 text-white px-3 py-1 rounded-md'>{val.ability.name}</span>
                             ))}
                             </p>
                             <p className='my-3'>
                             Types: {" "}
                             {pokeData.types?.map(val => (
-                                <span className='bg-gray-500 text-white px-3 py-1 rounded-md'>{val.type.name}</span>
+                                <span key={val.type.name} className='bg-gray-500 text-white px-3 py-1 rounded-md'>{val.type.name}</span>
                             ))}
                         </p>
                     </div>
-                </>
+                </Suspense>
             )}
         </div>
       </div>
