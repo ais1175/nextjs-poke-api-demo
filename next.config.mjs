@@ -3,9 +3,9 @@ const nextConfig = {
     images: {
         domains: ['raw.githubusercontent.com']
     },
-    // experimental: {
-    //     missingSuspenseWithCSRBailout: false,
-    // },
+    experimental: {
+        missingSuspenseWithCSRBailout: false,
+    },
 };
 
 export default nextConfig;
